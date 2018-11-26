@@ -1,0 +1,99 @@
+.typeahead {
+  display: inline-block;
+  position: relative;
+
+  &__combobox {
+    display: none;
+
+    border-radius: $input-radius;
+
+    &--focused {
+      box-shadow: 0 0 0 3px $color-focus-outline;
+    }
+  }
+
+  &__preview {
+    position: absolute;
+    width: 100%;
+
+    line-height: normal;
+    color: $color-grey;
+
+    border-color: transparent;
+    pointer-events: none;
+  }
+
+  &__input {
+    background: transparent;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &__listbox {
+    width: 100%;
+
+    &:not(&--full-width) {
+      @include mq(s) {
+        width: $input-width;
+      }
+    }
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    border: 1px solid $color-borders;
+    border-top: 0;
+    border-bottom-left-radius: $input-radius;
+    border-bottom-right-radius: $input-radius;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__option {
+    margin: 0;
+    padding: $input-padding;
+    outline: none;
+
+    cursor: pointer;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-mid-grey;
+    }
+
+    &:not(&--no-results, &--more-results):hover,
+    &--focused:not(&--no-results) {
+      background: $color-blue;
+      border-color: $color-blue;
+      color: $color-white;
+    }
+
+    &--no-results,
+    &--more-results {
+      cursor: not-allowed;
+      background: $color-mid-grey;
+    }
+  }
+
+  // Modifiers
+  &--initialised & {
+    &__select {
+      display: none;
+    }
+
+    &__combobox {
+      display: block;
+    }
+  }
+
+  &--has-results & {
+    &__input {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}

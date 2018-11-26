@@ -33,7 +33,7 @@ class Collapsible {
     const content = rootEl.getElementsByClassName(classCollapsibleContent)[0]
 
     rootEl.classList.contains(classCollapsibleSimple) ? this.multi = false : this.multi = true
-    
+
     this.titles = forEach(
       rootEl.getElementsByClassName(classCollapsibleTitle),
       (el, index) => { this.registerTitle(el, index) }
@@ -138,14 +138,14 @@ class Collapsible {
       forEach(this.toggleAllTrigger, trigger => this.show(trigger))
     }
   }
-  
+
   toggle(element) {
     if (element.getAttribute(attrExpanded) === 'true') {
       this.close(element)
     } else {
       this.open(element)
     }
-    
+
     this.updateOpenCloseTriggerDisplay()
   }
 
@@ -168,7 +168,7 @@ class Collapsible {
 
     bodyEl.classList.add(classExpanded)
     bodyEl.setAttribute(attrHidden, false)
-    
+
     this.openItems += 1
   }
 

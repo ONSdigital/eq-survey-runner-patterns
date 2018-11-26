@@ -1,0 +1,19 @@
+.address-input {
+  &__search {
+    display: none;
+  }
+
+  &--search & {
+    &__manual {
+      display: none;
+    }
+
+    &__search {
+      display: block;
+    }
+  }
+
+  &__typeahead {
+    width: 100%;
+  }
+}

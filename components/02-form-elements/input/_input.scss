@@ -9,8 +9,13 @@
   border-radius: $input-radius;
   width: 100%;
   transition: border-color 200ms ease-in;
+
   @include mq(s) {
     width: $input-width;
+  }
+
+  &[type=text] {
+    appearance: none;
   }
 
   &:hover {
@@ -23,6 +28,41 @@
     @include fixed() {
       outline: 3px solid $color-focus-outline;
     }
+  }
+
+  &--width-2 {
+    width: 100%;
+    max-width: $input-width-2;
+  }
+
+  &--width-3 {
+    width: 100%;
+    max-width: $input-width-3;
+  }
+
+  &--width-4 {
+    width: 100%;
+    max-width: $input-width-4;
+  }
+
+  &--width-5 {
+    width: 100%;
+    max-width: $input-width-5;
+  }
+
+  &--width-10 {
+    width: 100%;
+    max-width:$input-width-10;
+  }
+
+  &--width-20 {
+    width: 100%;
+    max-width: $input-width-20;
+  }
+
+  &--width-30 {
+    width: 100%;
+    max-width: $input-width-30;
   }
 }
 

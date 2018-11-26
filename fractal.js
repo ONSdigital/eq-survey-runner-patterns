@@ -110,6 +110,9 @@ const hbs = handlebarsAdapter({
         '/': lvalue / rvalue,
         '%': lvalue % rvalue
       }[operator];
+    },
+    json: function(object) {
+      return JSON.stringify(object);
     }
   }
 });

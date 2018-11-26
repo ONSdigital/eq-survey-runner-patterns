@@ -1,0 +1,54 @@
+<fieldset class="field address-input js-address">
+  <legend class="field__legend mars">What is your address?</legend>
+
+  <div class="address-input__manual">
+    <div class="field__item field__item--width-20">
+      <label class="label venus" for="address-line-1">Building and street <span class="u-vh">line 1 of 2</span></label>
+      <input id="address-line-1" class="input input--text input--width-20 js-address-line-1" name="address-line-1" type="text" />
+    </div>
+
+    <div class="field__item field__item--width-20">
+      <label class="u-vh" for="address-line-2">Building and street line 2 of 2</label>
+      <input id="address-line-2" class="input input--text input--width-20 js-address-line-2" name="address-line-2" type="text" />
+    </div>
+
+    <div class="field__item">
+      <label class="label venus" for="address-town">Town or City</label>
+      <input id="address-town" class="input input--text js-address-town" name="address-town" type="text" />
+    </div>
+
+    <div class="field__item">
+      <label class="label venus" for="address-county">County</label>
+      <input id="address-county" class="input input--text js-address-county" name="address-county" type="text" />
+    </div>
+
+    <div class="field__item">
+      <label class="label venus" for="address-postcode">Postcode</label>
+      <input id="address-postcode" class="input input--text input--width-3 js-address-postcode" name="address-postcode" type="text" />
+    </div>
+
+    <div class="field__item u-d-no js-address-search-btn-container">
+      <button class="btn btn--secondary btn--small js-address-search-btn" type="button">Search for an address</button>
+    </div>
+  </div>
+
+  <div class="address-input__search">
+    <div class="field__item field__item--width-30">
+      <div class="address-input__typeahead typeahead js-address-typeahead" data-content="{{json typeahead.content}}">
+        <label class="label venus js-typeahead-label" for="address-typeahead">Please enter your address</label>
+        <div class="typeahead__combobox js-typeahead-combobox" role="combobox" aria-haspopup="listbox" aria-expanded="false">
+          <input class="typeahead__preview js-typeahead-preview input input--text input--width-30" readonly="true" aria-hidden="true" tabindex="-1" />
+          <input id="address-typeahead" class="typeahead__input js-typeahead-input input input--text input--width-30" name="address-typeahead" type="text" autocomplete="new-address" aria-autocomplete="list" aria-controls="{{typeahead.listbox_id}}" aria-describedby="{{typeahead.instructions_id}}" />
+          <div class="u-vh" id="{{typeahead_instructions_id}}">{{typeahead.instructions}}</div>
+          <ul class="typeahead__listbox typeahead__listbox--full-width js-typeahead-listbox" role="listbox" id="{{typeahead.listbox_id}}"></ul>
+          <div class="u-vh js-typeahead-aria-status" aria-live="polite" role="status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field__item">
+      <button class="btn btn--secondary btn--small js-address-manual-btn" type="button">Manually enter address</button>
+    </div>
+  </div>
+
+</fieldset>

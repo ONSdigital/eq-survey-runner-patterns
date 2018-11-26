@@ -20,8 +20,10 @@
   },
   "dependencies": {
     "a11y-dialog": "^4.0.1",
+    "abortcontroller-polyfill": "^1.1.9",
+    "dice-coefficient": "^1.0.3",
     "ie9-oninput-polyfill": "^1.1.1",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@frctl/fractal": "^1.1.7",
@@ -44,8 +46,9 @@
     "browserify": "^14.1.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "cheerio": "^1.0.0-rc.2",
     "chai-spies": "^1.0.0",
+    "cheerio": "^1.0.0-rc.2",
+    "cldr-localenames-modern": "^33.0.0",
     "del": "^2.2.0",
     "eslint": "^3.16.1",
     "eslint-config-standard": "^6.2.1",
@@ -93,8 +96,8 @@
     "opn": "^5.4.0",
     "pixrem": "^3.0.2",
     "postcss-inline-block": "^1.0.0",
-    "puppeteer": "^1.10.0",
     "postcss-pseudoelements": "^5.0.0",
+    "puppeteer": "^1.10.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",

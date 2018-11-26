@@ -2,10 +2,13 @@ node_modules
 public
 !public/.gitkeep
 .idea
+.vscode
+.github
 dist
-yarn-error.log
-coverage
-.DS_Store
+*.log
 *.tmp
+coverage
+env
+.DS_Store
 
 secrets.yml

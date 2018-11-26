@@ -1,0 +1,28 @@
+<div class="typeahead js-typeahead" data-content="{{json content}}"{{#if result_limit}} data-result-limit="{{result_limit}}"{{/if}}{{#if prevent_fuzzy_match}} data-prevent-fuzzy="true"{{/if}}>
+  {{> @label }}
+  <select class="typeahead__select js-typeahead-select input input--select{{#if select_classes}}{{select_classes}}{{/if}}" id="{{label_for}}" name="select">
+    {{#each options}}
+      <option{{#if option_value}} value="{{option_value}}"{{/if}}{{#if selected}} selected{{/if}}{{#if disabled}} disabled{{/if}}{{#if option_alternatives}} data-alternatives="{{option_alternatives}}"{{/if}}>{{option_text}}</option>
+    {{/each}}
+  </select>
+  <div class="typeahead__combobox js-typeahead-combobox" role="combobox" aria-expanded="false">
+    <div class="u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div>
+    <input class="typeahead__preview js-typeahead-preview input input--text" readonly="true" aria-hidden="true" tabindex="-1" />
+    <input
+      id="{{input_id}}"
+      class="typeahead__input js-typeahead-input input input--text"
+      type="text"
+      autocomplete="false"
+      role="textbox"
+      aria-autocomplete="list"
+      aria-controls="{{listbox_id}}"
+      aria-describedby="{{instructions_id}}"
+    />
+    <ul
+      id="{{listbox_id}}"
+      class="typeahead__listbox js-typeahead-listbox"
+      role="listbox"
+    ></ul>
+    <div class="u-vh" id="{{instructions_id}}" tabindex="-1">{{instructions}}</div>
+  </div>
+</div>

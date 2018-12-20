@@ -1,0 +1,51 @@
+  <!doctype html>
+<!--[if lt IE 7]>      <html lang="en-gb" dir="ltr" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-gb" dir="ltr" class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-gb" dir="ltr" class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html lang="en-gb" dir="ltr" class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en-gb" dir="ltr" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>{{ _target.title }} - {{ _config.project.title }}</title>
+
+  {{render '@favicons'}}
+
+  <!--[if (gt IE 9) | (IEMobile)]><!-->
+  <link href="{{ path '/assets/css/responsive.css' }}" rel="stylesheet">
+  <!--<![endif]-->
+  <!--[if (lte IE 9) & (!IEMobile)]>
+  <link href="{{ path '/assets/css/fixed.css' }}" rel="stylesheet">
+  <![endif]-->
+
+  <!--[if gt IE 8]><!-->
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
+  <!--<![endif]-->
+
+  <script>
+    window.__EQ_SESSION_TIMEOUT__ = 18;
+    window.__EQ_SESSION_TIMEOUT_PROMPT__ = 12;
+  </script>
+
+  <style>
+    .collator-item {
+      margin-bottom: 2rem;
+    }
+    .collator-title {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div style="padding-top:1rem" >
+  <div class="page__container container">
+    <div class="grid grid--reverse">
+      <div class="grid__col col-11@m pull-1@m">
+        {{{ yield }}}
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{{ path '/assets/scripts/bundle.js' }}" charset="utf-8"></script>
+</body>
+</html>

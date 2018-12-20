@@ -36,13 +36,15 @@
     &--link + .collapsible__body {
       display: none;
     }
-  }  
+  }
 
   &-text {
     float: left;
     margin-top: 0.3rem;
-    max-width: 73%;
     line-height: 1.3rem;
+    @include mq(s) {
+      max-width: 73%;
+    }
   }
 
   &:focus {
@@ -73,12 +75,54 @@
       outline-offset: 3px;
       outline: 3px solid $color-focus-outline;
       color: $color-links-hover;
-    } 
+    }
+  }
+}
+
+.collapsible--contained {
+  .collapsible__title {
+    border: 1px solid $color-borders;
+    margin-top: 0.5rem;
+    padding-right: 0.65rem;
+    padding-left: 2.5rem;
+    &:hover {
+      background-color: $color-block-hover;
+      .btn {
+        background-color: darken($color-light-grey, 10%);
+        border-color: darken($color-light-grey, 10%);
+      }
+    }
+    .no-js &,
+    &.is-expanded {
+      border-bottom: none;
+    }
+    .no-js &:hover {
+      background: none;
+    }
+    .no-js & {
+      padding-left: 1rem;
+    }
+  }
+  .icon--collapsible {
+    &:after, &:before {
+      left: 0.9rem;
+    }
+  }
+  .collapsible__body {
+    .no-js &,
+    &.is-expanded {
+      border: 1px solid $color-borders;
+      border-top: none;
+      padding-top: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-bottom: 0;
+    }
   }
 }
 
 .collapsible__controls {
-  margin: 1rem 0;    
+  margin: 1rem 0;
   .no-js & {
     display: none;
   }

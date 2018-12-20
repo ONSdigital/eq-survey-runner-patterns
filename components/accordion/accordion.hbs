@@ -1,3 +1,4 @@
+{{#unless complex}}
 <div class="collapsible js-collapsible">
   {{#if show_all}}
   <div class="collapsible__controls">
@@ -67,3 +68,83 @@
     </div>
   </div>
 </div>
+{{else}}
+  {{#each contained_accordion}}
+  <div class="collapsible collapsible--contained js-collapsible">
+    <div class="js-collapsible-content">
+      <h3 class="collapsible__title js-collapsible-title icon--collapsible" data-ga="click" data-ga-category="accordion" data-ga-action="Open panel" data-ga-label="Total retail turnover">
+        <span class="collapsible__title-text">{{accordion_heading}}</span>
+        <button class="btn btn--secondary btn--small collapsible__title-right u-d-no--@xs@s js-collapsible-toggle u-wa--@xs" data-close-label="Hide" data-open-label="Show" aria-hidden="true" data-ga="click" data-ga-category="accordion" data-ga-action="Open panel" data-ga-label="Total retail turnover">Show</button>
+      </h3>
+      <div class="collapsible__body mars js-collapsible-body">
+
+        <div class="table-scrollable table-scrollable--on">
+          <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{caption}}. There are 7 columns in this table. Some of the table may be off screen. Scroll or drag horizontally to bring into view.">
+            <table class="table table--sortable" data-aria-sort="Sort by" data-aria-asc="ascending" data-aria-desc="descending">
+              <caption class="table__caption">{{caption}}</caption>
+              <thead class="table__head">
+                <th scope="col" class="table__header" aria-sort="none">ID</th>
+                <th scope="col" class="table__header" aria-sort="none">Title</th>
+                <th scope="col" class="table__header" aria-sort="none">Abbreviation</th>
+                <th scope="col" class="table__header" aria-sort="none">Legal basis</th>
+                <th scope="col" class="table__header" aria-sort="none">Frequency</th>
+                <th scope="col" class="table__header" aria-sort="none">Date</th>
+                <th scope="col" class="table__header" aria-sort="none">Status</th>
+              </thead>
+              <tbody class="table__body">
+                <tr class="table__row">
+                  <td class="table__cell">023</td>
+                  <td class="table__cell">Monthly Business Survey - Retail Sales Index</td>
+                  <td class="table__cell">RSI</td>
+                  <td class="table__cell">Statistics of Trade Act 1947</td>
+                  <td class="table__cell" data-sort-value="1">Monthly</td>
+                  <td class="table__cell" data-sort-value="2018-01-20">20 Jan 2018</td>
+                  <td class="table__cell" data-sort-value="0"><span class="status status--success">Ready</span></td>
+                </tr>
+                <tr class="table__row">
+                  <td class="table__cell">112</td>
+                  <td class="table__cell" data-sort-value="Title">Annual Inward Foreign Direct Investment Survey</td>
+                  <td class="table__cell">AIFDI</td>
+                  <td class="table__cell">Statistics of Trade Act 1947</td>
+                  <td class="table__cell" data-sort-value="12">Annually</td>
+                  <td class="table__cell" data-sort-value="2018-02-26">26 Feb 2018</td>
+                  <td class="table__cell" data-sort-value="1"><span class="status status--warning">Not ready</span></td>
+                </tr>
+                <tr class="table__row">
+                  <td class="table__cell">332</td>
+                  <td class="table__cell">Business Register and Employment Survey</td>
+                  <td class="table__cell">BRES</td>
+                  <td class="table__cell">Statistics of Trade Act 1947</td>
+                  <td class="table__cell" data-sort-value="12">Annually</td>
+                  <td class="table__cell" data-sort-value="2013-01-23">23 Jan 2013</td>
+                  <td class="table__cell" data-sort-value="2"><span class="status status--info">In progress</span></td>
+                </tr>
+                <tr class="table__row">
+                  <td class="table__cell">654</td>
+                  <td class="table__cell">Quartely Survey of Building Materials Sand and Gravel</td>
+                  <td class="table__cell">QBMS</td>
+                  <td class="table__cell">Statistics of Trade Act 1947 - BEIS</td>
+                  <td class="table__cell" data-sort-value="3">Quartely</td>
+                  <td class="table__cell" data-sort-value="2015-01-24">24 Jan 2015</td>
+                  <td class="table__cell" data-sort-value="3"><span class="status status--error">Issue</span></td>
+                </tr>
+                <tr class="table__row">
+                  <td class="table__cell">765</td>
+                  <td class="table__cell">Monthly Survey of Building Materials Concrete Building Blocks</td>
+                  <td class="table__cell">MSBB</td>
+                  <td class="table__cell">Voluntary</td>
+                  <td class="table__cell" data-sort-value="1">Monthly</td>
+                  <td class="table__cell" data-sort-value="2015-01-25">25 Jan 2015</td>
+                  <td class="table__cell" data-sort-value="0"><span class="status status--success">Ready</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="u-mb-xl"></div>
+
+      </div>
+    </div>
+  </div>
+  {{/each}}
+{{/unless}}

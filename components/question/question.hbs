@@ -1,0 +1,128 @@
+<form class="form qa-questionnaire-form" role="form" autocomplete="off" novalidate>
+
+  <div class="group" id="current_location.group_id">
+    <div class="block" id="current_location.block_id">
+
+      <p class="block__title u-fs-m" data-qa="block-title">{{section_title}}</p>
+
+      <div class="question {{question_class}}" id="{{question_id}}">
+
+        <h1 class="question__title u-fs-l" data-qa="question-title">
+          <span class="question__number">{{question_number}}. </span>
+          {{question_title}}
+        </h1>
+
+        <h3 class="question__subtitle u-fs-r">{{question_subtitle}}</h3>
+
+        <div class="question__description u-fs-r" id="description-question.id">
+          {{question_description}}
+        </div>
+
+        {{#if definition_description}}
+        <div class="collapsible collapsible--simple js-collapsible js-collapsible-simple u-mt-s u-mb-s">
+          <div class="js-collapsible-content">
+            <h3 class="collapsible__title js-collapsible-title icon--collapsible-simple u-fs-r--b" data-definition-title-index="loop.index" data-ga="click" data-ga-category="Question definition" data-ga-action="Open panel" data-ga-label=" definition.title ">{{definition_title}}</h3>
+            <div class="collapsible__body js-collapsible-body" data-definition-content-index="loop.index">
+              <strong class="u-mb-s">{{definition_description_title}}</strong>
+              <p>{{definition_description}}</p>
+              <button class="btn--secondary btn--small js-collapsible-close u-no-js-hide" data-definition-hide-button-index="loop.index" data-ga="click" data-ga-category="Question definition" data-ga-action="Close panel" data-ga-label=" definition.title ">Hide this</button>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+
+        <aside class="question__guidance">
+          <div class="panel panel--simple panel--info" id="question-guidance-question.id">
+            <strong class="u-mb-s">{{question_guidance_title}}</strong>
+            <p>{{question_guidance}}</p>
+            {{#if question_guidance_list}}
+            <ul>
+              {{#each question_guidance_list}}
+              <li>{{item}}</li>
+              {{/each}}
+            </ul>
+            {{/if}}
+          </div>
+        </aside>
+
+        {{#unless repeating_answer}}
+        <div class="question__answers">
+          <div class="question__answer">
+            <div class="answer answer--checkbox" id="container-{{answer_id}}">
+              <div class="answer__fields js-fields">
+                <div class="field field--checkbox field--multiplechoice field--exclusive">
+                  <fieldset>
+                    <legend class="field__legend u-fs-r u-vh">{{fieldset_legend}}</legend>
+                    <div class="field__label u-fs-r--b">{{field_label}}</div>
+                    {{#each options}}
+                    <div class="field__item js-focusable-box">
+                      <input class="input input--checkbox js-focusable js-exclusive-group" name="heating-type" value="{{option_value}}" id="{{label_for}}" type="checkbox">
+                      {{>@label}}
+                    </div>
+                    {{/each}}
+                    <div class="field__label u-mt-s u-fs-r--b" aria-hidden="true">{{or}}</div>
+                    <div class="field__item js-focusable-box">
+                      <input class="input input--checkbox js-focusable js-exclusive-checkbox" name="heating-type" value="{{or_option_value}}" id="none" type="checkbox">
+                      <label class="label label--inline u-fs-r--b " for="none">
+                          <span class="u-vh">{{or}},</span> {{or_option_text}}<span class="u-vh">. {{or_deselect_message}}</span>
+                      </label>
+                      <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{or_deselect_adjective}}"></span>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{else}}
+        <div class="question__answers u-mb-s">
+          {{#each name_form as |item index|}}
+          <div class="question__answer u-mb-no u-mt-m js-household-person" data-remove="Remove" data-index="{{ math @index "+" 1 }}">
+            <h3 class="u-fs-m">Person <span class="js-household-loopindex">{{ math @index "+" 1 }}</span>
+              {{#if @first}}
+                <small><span class="js-household-action"> (You)</span></small>
+              {{else}}
+                <button class="btn btn--secondary btn--small u-wa--@xs u-mb-no u-fr js-btn-remove" name="action[remove_answer]" value="{{ math @index "+" 1 }}" type="submit">Remove
+                <span class="u-vh">Person {{ math @index "+" 1 }}</span>
+                </button>
+              {{/if}}
+            </h3>
+            <fieldset class="question__fieldset">
+              <legend class="question__legend u-vh">Person <span class="js-household-loopindex">{{ math @index "+" 1 }}</span></legend>
+              {{#each answer_field}}
+              <div class="answer answer--textfield" id="container-{{answer_id}}">
+                <div class="answer__fields js-fields">
+                  <div class="field">
+                    <label class="label u-fs-r--b" for="{{answer_id}}">{{label_text}}{{#if label_description}}
+                      <br/><span class="label__description u-fs-s">{{label_description}}</span>
+                      {{/if}}</label>
+                    <input class="input input--text" type="text" id="{{answer_id}}" data-qa="input-text" />
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </fieldset>
+          </div>
+          {{/each}}
+        </div>
+        <div class="question__actions u-mt-xs">
+          <button class="btn btn--secondary btn--small u-wa--@xs js-household-btn u-mb-m" type="submit" name="action[add_answer]">
+            Add another person
+            <span class="u-vh">. Selecting this will add a new set of fields to enter another person</span>
+          </button>
+          <span class="js-add-another-alert u-vh" role="alert" aria-live="polite" data-msg="New fields have been added to the page for another person."></span>
+        </div>
+        {{/unless}}
+
+
+      </div>
+    </div>
+  </div>
+
+  <button class="btn u-mb-s" type="submit">Save and continue</button>
+
+  <div class="u-mb-m">
+    <button class="btn btn--secondary js-btn-save" type="submit">Save and complete later</button>
+  </div>
+
+</form>

@@ -1,32 +1,32 @@
-<table class="table{{table-class}}">{{#if caption}}{{!Only display caption if supplied in context}}
-  <caption class="table--caption">{{caption}}</caption>{{/if}}{{!End caption if}}
-  <thead class="table--head">
-    <th scope="col" class="table--header--cell">Column A</th>
-    <th scope="col" class="table--header--cell">Column B</th>
-    {{#if datadense}}{{!Add the following columns for the data dense view}}
-    <th scope="col" class="table--header--cell">Column C</th>
-    <th scope="col" class="table--header--cell">Column D</th>
-    <th scope="col" class="table--header--cell">Column E</th>
-    {{/if}}
+{{#each table_block}}
+{{#if scrollable}}
+<div class="table-scrollable table-scrollable--on">
+  <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{caption}}. There are 7 columns in this table. Some of the table may be off screen. Scroll or drag horizontally to bring into view.">
+{{/if}}
+<table class="table{{table_class}}"  {{#if sortable}}data-aria-sort="Sort by" data-aria-asc="ascending" data-aria-desc="descending"{{/if}}>
+  {{#if caption}}
+  <caption class="table__caption">{{caption}}</caption>
+  {{/if}}
+  <thead class="table__head">
+    {{#each th}}
+    <th scope="col" class="table__header{{class}}"{{#if aria_sort}} aria-sort="{{aria_sort}}"{{/if}}>{{value}}</th>
+    {{/each}}
   </thead>
-  <tbody>
-    <tr class="table--row">
-      <td class="table--cell">Cell A1</td>
-      <td class="table--cell">Cell B1</td>
-      {{#if datadense}}{{!Add the following columns for the data dense view}}
-      <td class="table--cell">Cell C1</td>
-      <td class="table--cell">Cell D1</td>
-      <td class="table--cell">Cell E1</td>
-      {{/if}}
+  <tbody class="table__body">
+    {{#each tr}}
+    <tr class="table__row">
+      {{#each td}}
+      <td class="table__cell{{class}}"{{#if data}} data-th="{{data}}"{{/if}} {{#if data_sort}} data-sort-value="{{data_sort}}"{{/if}}>{{{value}}}</td>
+      {{/each}}
     </tr>
-    <tr class="table--row">
-      <td class="table--cell">Cell A2</td>
-      <td class="table--cell">Cell B2</td>
-      {{#if datadense}}{{!Add the following columns for the data dense view}}
-      <td class="table--cell">Cell C2</td>
-      <td class="table--cell">Cell D2</td>
-      <td class="table--cell">Cell E2</td>
-      {{/if}}
+    {{/each}}
+  </tbody>
+  {{#if tfoot}}
+  <tfoot class="table__foot">
+    <tr class="table__row">
+      {{#each tfoot}}
+      <td class="table__cell pluto">{{value}}</td>
+      {{/each}}
     </tr>
   </tbody>{{#if tfoot}}{{! Only display if tfoot is set to true}}
   <tfoot class="table--foot">
@@ -41,3 +41,9 @@
     </tr>
   </tfoot>{{/if}}{{! End tfoot if}}
 </table>
+{{#if scrollable}}
+</div>
+</div>
+{{/if}}
+<div class="u-mb-xl"></div>
+{{/each}}

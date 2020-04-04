@@ -28,7 +28,7 @@
     "@frctl/fractal": "^1.1.7",
     "@frctl/handlebars": "^1.0.0",
     "@frctl/mandelbrot": "^1.2.0",
-    "acorn": "^6.0.2",
+    "acorn": "^6.4.1",
     "autoprefixer": "^8.6.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.26.0",

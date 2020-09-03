@@ -97,7 +97,7 @@
     "postcss-inline-block": "^1.0.0",
     "postcss-mq-optimize": "^0.0.0",
     "postcss-pseudoelements": "^5.0.0",
-    "puppeteer": "^1.10.0",
+    "puppeteer": "^1.13.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
